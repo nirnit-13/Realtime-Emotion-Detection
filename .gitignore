@@ -1,0 +1,51 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# =========================
+# Jupyter Notebook
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Model Files (Optional)
+# Uncomment if model file is too large
+# =========================
+# *.h5
+
+# =========================
+# Dataset Files (Optional)
+# Uncomment if dataset is large
+# =========================
+# data/
+# Emotion/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Environment Variables
+# =========================
+.env

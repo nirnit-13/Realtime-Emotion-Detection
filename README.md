@@ -21,17 +21,15 @@ This project implements a **real-time emotion detection system** that:
 - Detects faces using Haar Cascade classifier  
 - Classifies facial expressions using a trained CNN model  
 - Performs live emotion prediction via webcam  
-- Displays emotion labels directly on video stream  
+- Displays emotion labels directly on the video stream  
 
-Supported emotions:
+### 🎯 Supported Emotions
 
 > 😠 Angry  
 > 😃 Happy  
 > 😢 Sad  
 > 😐 Neutral  
 > 😲 Surprise  
-> 😨 Fear  
-> 🤢 Disgust  
 
 ---
 
@@ -52,7 +50,8 @@ Model file:
 emotion_detection_model.h5
 ```
 
-Input Shape: `48x48 Grayscale`
+Input Shape: `48x48 Grayscale`  
+Output Classes: `5 Emotions`
 
 Loss Function: `Categorical Crossentropy`  
 Optimizer: `Adam`
@@ -63,28 +62,30 @@ Optimizer: `Adam`
 
 | Metric | Value |
 |--------|--------|
-| Training Accuracy | ~94% |
+| Training Accuracy | ~93–95% |
 | Validation Accuracy | ~88–90% |
 | Input Size | 48x48 |
-| Classes | 7 Emotions |
+| Classes | 5 Emotions |
 
-> Accuracy may vary depending on dataset split and training configuration.
+> Accuracy may vary depending on dataset split and preprocessing pipeline.
 
 ---
 
 ## 📉 Confusion Matrix
 
-The confusion matrix helps evaluate classification performance across emotions.
+The confusion matrix evaluates how well the model distinguishes between emotions.
 
 Example (Illustrative):
 
-| Actual \ Predicted | Angry | Happy | Sad | Neutral | Surprise | Fear | Disgust |
-|--------------------|-------|-------|-----|---------|----------|------|---------|
-| Angry              | 92%   | 2%    | 3%  | 1%      | 1%       | 1%   | 0%      |
-| Happy              | 1%    | 95%   | 1%  | 1%      | 2%       | 0%   | 0%      |
-| Sad                | 4%    | 1%    | 90% | 3%      | 1%       | 1%   | 0%      |
+| Actual \ Predicted | Angry | Happy | Sad | Neutral | Surprise |
+|--------------------|-------|-------|-----|---------|----------|
+| Angry              | 92%   | 3%    | 3%  | 1%      | 1%       |
+| Happy              | 2%    | 95%   | 1%  | 1%      | 1%       |
+| Sad                | 4%    | 2%    | 89% | 3%      | 2%       |
+| Neutral            | 2%    | 3%    | 4%  | 88%     | 3%       |
+| Surprise           | 1%    | 1%    | 2%  | 2%      | 94%      |
 
-This identifies misclassification trends and helps guide model improvements.
+This helps identify misclassification trends and guides future improvements.
 
 ---
 
@@ -115,9 +116,7 @@ Realtime-Emotion-Detection/
 │   ├── happy/
 │   ├── sad/
 │   ├── neutral/
-│   ├── surprise/
-│   ├── fear/
-│   └── disgust/
+│   └── surprise/
 ```
 
 ---
@@ -127,8 +126,8 @@ Realtime-Emotion-Detection/
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/realtime-emotion-detection.git
-cd realtime-emotion-detection
+git clone https://github.com/nirnit-13/Realtime-Emotion-Detection.git
+cd Realtime-Emotion-Detection
 ```
 
 ### 2️⃣ Create Virtual Environment
@@ -150,50 +149,50 @@ pip install -r requirements.txt
 
 ### 🔹 Real-Time Detection
 
-Run:
+Open:
 
 ```
 notebooks/Detection.ipynb
 ```
 
-OR convert to Python script:
+Or convert to script:
 
 ```bash
 python detection.py
 ```
 
-Press **Q** to close webcam window.
+Press **Q** to close the webcam window.
 
 ---
 
 ## 🔬 How the System Works
 
-1. Webcam captures frame  
+1. Webcam captures real-time frame  
 2. Frame converted to grayscale  
 3. Haar Cascade detects face region  
 4. Face resized to 48x48  
 5. Pixel values normalized  
 6. CNN predicts emotion  
-7. Label rendered on frame  
+7. Emotion label rendered on frame  
 
 ---
 
-## 🧾 Important Repository Notes
+## 🧾 Repository Notes
 
-- `.gitignore` excludes virtual environments, cache files, logs, and unnecessary system files.
+- `.gitignore` excludes virtual environments, logs, and system files.
 - `requirements.txt` ensures reproducible environment setup.
-- Haar Cascade XML files are included because they are required for face detection.
-- Large datasets can be excluded if needed to keep repository lightweight.
+- Haar Cascade XML file is included because it is required for face detection.
+- Model file is included for inference (remove if exceeding GitHub size limits).
 
 ---
 
 ## 📈 Future Enhancements
 
+- Improve generalization with larger datasets  
 - Replace Haar Cascade with DNN-based face detector  
 - Deploy using Flask / FastAPI  
-- Add probability confidence bars  
+- Add probability confidence visualization  
 - Convert into web-based interface  
-- Deploy on edge devices  
 
 ---
 
@@ -202,21 +201,21 @@ Press **Q** to close webcam window.
 - Human-Computer Interaction  
 - Smart Surveillance  
 - Emotion-aware AI systems  
-- Classroom engagement tracking  
-- Customer sentiment analysis  
+- Classroom engagement monitoring  
+- Behavioral analytics  
 
 ---
 
 ## 🤝 Contributing
 
 Pull requests are welcome.  
-Open an issue for major feature discussions.
+For major changes, please open an issue first.
 
 ---
 
 ## 📜 License
 
-For educational and research purposes.
+This project is intended for educational and research purposes.
 
 ---
 
